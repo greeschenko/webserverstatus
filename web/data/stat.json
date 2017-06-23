@@ -1,0 +1,44 @@
+[
+    {
+        "name":"hdd",
+        "graph":"/data/graph.jpg",
+        "stats":"free 23Gb/40Gb (53%)",
+        "status":"FAIL"
+    },
+    {
+        "name":"cpu(6)",
+        "graph":"/data/graph.jpg",
+        "stats":"load 1.23/2.34/4.56   (72/40/3)",
+        "status":"OK"
+    },
+    {
+        "name":"mem/swap",
+        "graph":"/data/graph.jpg",
+        "stats":"mem free 3.2Gb/6Gb (51%)",
+        "status":"OK"
+    },
+    {
+        "name":"apache",
+        "graph":"/data/graph.jpg",
+        "stats":"93 reqs(3.1/sec) 138.8K(4738.1B/sec) 1528.4B/req",
+        "status":"OK"
+    },
+    {
+        "name":"mysql",
+        "graph":"/data/graph.jpg",
+        "stats":"7.2M qps:16 Slow:83.0  Se/In/Up/De(%): 52/03/00/01",
+        "status":"WARN"
+    },
+    {
+        "name":"eset",
+        "graph":"/data/graph.jpg",
+        "stats":"scan 24k",
+        "status":"FAIL"
+    },
+    {
+        "name":"network",
+        "graph":"/data/graph.jpg",
+        "stats":"IN: 99.5kBit/s, 55.78kBit/s, 45Gb",
+        "status":"OK"
+    }
+]

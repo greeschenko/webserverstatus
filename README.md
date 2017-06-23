@@ -1,2 +1,2 @@
 # webserverstatus
-web app for check web server state
+golang based web app for check web server state

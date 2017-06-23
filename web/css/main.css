@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: rgba(128, 128, 128, 0.2); }
+
+h1, .mainpage_header_content {
+  font-size: 2em;
+  color: rgba(0, 0, 0, 0.6); }
+
+.text_small, input[type="text"], textarea {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.9em; }
+
+.text_normal, button.normal, button.noborder {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1em; }
+
+.text_big {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.4em; }
+
+input {
+  outline: none; }
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 0.6em 1em;
+  margin: 0;
+  box-sizing: border-box;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.4); }
+
+button.normal, button.noborder {
+  width: 100%;
+  border: 1px solid rgba(0, 128, 0, 0.5);
+  background: rgba(50, 205, 50, 0.5);
+  padding: 0.5em;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.5s ease 0s; }
+  button.normal:hover, button.noborder:hover {
+    background: rgba(0, 128, 0, 0.8);
+    color: white; }
+  button.normal:active, button.noborder:active {
+    background: black; }
+
+button.noborder {
+  border: none; }
+
+.loginform {
+  position: fixed;
+  width: 50vw;
+  top: 20vh;
+  left: 25vw;
+  background: white;
+  box-shadow: 2px 2px 5px grey;
+  padding: 2em; }
+  .loginform_header {
+    text-align: center;
+    padding-bottom: 2em; }
+  .loginform_form_item {
+    margin-bottom: 1em; }
+
+.preintro {
+  color: grey;
+  position: fixed;
+  top: 40%;
+  left: 45%; }
+  .preintro span {
+    font-size: 1.5em; }
+
+.mainpage_header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 1em; }
+  .mainpage_header_content {
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    padding-left: 1em; }
+
+.indicator {
+  width: 3em;
+  height: 3em;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 50%; }
+  .indicator.OK {
+    background: limegreen; }
+  .indicator.WARN {
+    background: darkorange; }
+  .indicator.FAIL {
+    background: tomato; }
+
+.statitem {
+  background: white;
+  margin-bottom: 1em;
+  height: 3em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  .statitem_name {
+    width: 8em;
+    padding-left: 1em;
+    line-height: 3em;
+    font-weight: bold; }
+  .statitem_graph img {
+    height: 3em; }
+  .statitem_stats {
+    padding: 0 1em;
+    line-height: 3em;
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
+  .statitem_status {
+    width: 5em;
+    text-align: center;
+    color: white;
+    line-height: 3em;
+    font-weight: bold; }
+    .statitem_status.OK {
+      background: limegreen; }
+    .statitem_status.WARN {
+      background: darkorange; }
+    .statitem_status.FAIL {
+      background: tomato; }

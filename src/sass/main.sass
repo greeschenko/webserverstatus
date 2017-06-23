@@ -1,0 +1,147 @@
+$greycolor: rgba(black, 0.6)
+
+*
+  margin: 0
+  padding: 0
+
+body
+  background: rgba(grey, 0.2)
+
+h1
+  font-size: 2em
+  color: $greycolor
+
+.text_small
+  color: $greycolor
+  font-size: 0.9em
+.text_normal
+  color: $greycolor
+  font-size: 1em
+.text_big
+  color: $greycolor
+  font-size: 1.4em
+
+//forms
+input
+  outline: none
+
+input[type="text"]
+  @extend .text_small
+  width: 100%
+  padding: 0.6em 1em;
+  margin: 0;
+  box-sizing: border-box;
+  background: none
+  border: 1px solid rgba(black, 0.4)
+
+textarea
+  @extend input[type="text"]
+//forms end
+
+//buttons start
+button.normal
+  @extend .text_normal
+  width: 100%
+  border: 1px solid rgba(green, 0.5)
+  background: rgba(limegreen, 0.5)
+  padding: 0.5em
+  cursor: pointer
+  outline: none
+  transition: background 0.5s ease 0s
+  &:hover
+    background: rgba(green, 0.8)
+    color: white
+  &:focus
+  &:active
+    background: black
+
+button.noborder
+  @extend button.normal
+  border: none
+
+button.invert
+//buttons end
+
+//loginpage
+.loginform
+  position: fixed
+  width: 50vw
+  top: 20vh
+  left: 25vw
+  background: white
+  box-shadow: 2px 2px 5px grey
+  padding: 2em
+  &_header
+    text-align: center
+    padding-bottom: 2em
+  &_form
+    &_item
+      margin-bottom: 1em
+//loginpage end
+
+//preintro
+.preintro
+  color: grey
+  position: fixed
+  top: 40%
+  left: 45%
+  span
+    font-size: 1.5em
+//preintro end
+
+.mainpage
+  &_header
+    display: flex
+    justify-content: space-between
+    padding: 1em
+    &_status
+    &_content
+      @extend h1
+      flex-grow: 1
+      padding-left: 1em
+  &_list
+
+.indicator
+  width: 3em
+  height: 3em
+  border: 1px solid rgba(grey, 0.4)
+  border-radius: 50%
+  &.OK
+    background: limegreen
+  &.WARN
+    background: darkorange
+  &.FAIL
+    background: tomato
+
+.statitem
+  background: white
+  margin-bottom: 1em
+  height: 3em
+  display: flex
+  justify-content: space-between
+  &_name
+    width: 8em
+    padding-left: 1em
+    line-height: 3em
+    font-weight: bold
+  &_graph
+      img
+        height: 3em
+  &_stats
+    padding: 0 1em
+    line-height: 3em
+    flex-grow: 1
+  &_status
+    width: 5em
+    text-align: center
+    color: white
+    line-height: 3em
+    font-weight: bold
+    &.OK
+      background: limegreen
+    &.WARN
+      background: darkorange
+    &.FAIL
+      background: tomato
+
+
