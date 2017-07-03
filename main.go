@@ -5,7 +5,11 @@ import (
     "net/http"
     "github.com/gorilla/mux"
     "fmt"
+    "webserverstatus/libs/configread"
+    "webserverstatus/libs/imggen"
 )
+
+var imgList []int
 
 type Data struct {
     Users users
@@ -16,6 +20,33 @@ type users map[string]user
 
 type user struct {
     Name, Lastname, Email string
+}
+
+func getJsonResp() ([]byte, error) {
+    var conf = configread.Read()
+    user1 := user{"Yana","Greeschenko","bkacklsdjls@"+conf.Server.Domen}
+    user2 := user{"Aleksey","Greeschenko","greeschenko@"+conf.Server.Domen}
+    users := users{
+        "1":user1,
+        "2":user2,
+    }
+    data := Data{
+        users,
+        len(users),
+    }
+
+    return json.MarshalIndent(data, "", "  ")
+}
+
+func srvGetUsers(w http.ResponseWriter, r *http.Request) {
+    response, err := getJsonResp()
+    if err != nil {
+        panic(err)
+    }
+
+    imggen.Gen(imgList, 25);
+
+    w.Write(response)
 }
 
 //func main() {
@@ -40,26 +71,3 @@ func main() {
     server.ListenAndServe()
 }
 
-func srvGetUsers(w http.ResponseWriter, r *http.Request) {
-    response, err := getJsonResp()
-    if err != nil {
-        panic(err)
-    }
-
-    w.Write(response)
-}
-
-func getJsonResp() ([]byte, error) {
-    user1 := user{"Yana","Greeschenko","bkacklsdjls@lsdjflsdfsdl.eu"}
-    user2 := user{"Aleksey","Greeschenko","greeschenko@gmail.com"}
-    users := users{
-        "1":user1,
-        "2":user2,
-    }
-    data := Data{
-        users,
-        len(users),
-    }
-
-    return json.MarshalIndent(data, "", "  ")
-}

@@ -1,7 +1,6 @@
-package main
+package configread
 
 import (
-    "fmt"
     "io/ioutil"
     "encoding/json"
 )
@@ -29,16 +28,14 @@ func check(e error) {
     }
 }
 
-func main() {
+func Read() Config{
     var c Config
 
-    dat, err := ioutil.ReadFile("wss.cfg")
+    dat, err := ioutil.ReadFile("package.cfg")
     check(err)
 
     jerr := json.Unmarshal(dat, &c)
-    if jerr != nil {
-        fmt.Println("error:", jerr)
-    }
+    check(jerr)
 
-    fmt.Println(c)
+    return c
 }
