@@ -1,7 +1,6 @@
 package imggen
 
 import (
-    "fmt"
     "github.com/fogleman/gg"
 )
 
@@ -11,7 +10,7 @@ func Push(list []int, n int) []int {
     return r
 }
 
-func Gen(list []int, n int) {
+func Gen(list []int, n int) []int {
     data := Push(list, n)
 
     dc := gg.NewContext(200, 50)
@@ -21,4 +20,6 @@ func Gen(list []int, n int) {
         dc.Fill()
     }
     dc.SavePNG("web/img/out.png")
+
+    return data
 }

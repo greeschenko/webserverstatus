@@ -7,9 +7,10 @@ import (
     "fmt"
     "webserverstatus/libs/configread"
     "webserverstatus/libs/imggen"
+    "math/rand"
 )
 
-var imgList []int
+var imgList = make([]int, 20)
 
 type Data struct {
     Users users
@@ -44,7 +45,7 @@ func srvGetUsers(w http.ResponseWriter, r *http.Request) {
         panic(err)
     }
 
-    imggen.Gen(imgList, 25);
+    imgList = imggen.Gen(imgList, rand.Intn(50));
 
     w.Write(response)
 }
