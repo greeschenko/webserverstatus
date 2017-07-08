@@ -35,6 +35,10 @@ echo "            access_log        off;" >> /etc/nginx/sites-available/default
 echo "            expires           0;" >> /etc/nginx/sites-available/default
 echo "            add_header        Cache-Control private;" >> /etc/nginx/sites-available/default
 echo "        }" >> /etc/nginx/sites-available/default
+echo "        location /api {" >> /etc/nginx/sites-available/default
+echo "            include       fastcgi_params;" >> /etc/nginx/sites-available/default
+echo "            proxy_pass    http://localhost:1888;" >> /etc/nginx/sites-available/default
+echo "        }" >> /etc/nginx/sites-available/default
 echo "    }" >> /etc/nginx/sites-available/default
 
 sudo /etc/init.d/nginx restart
