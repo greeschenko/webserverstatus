@@ -16,17 +16,17 @@ let MainPage = new Hata(
             '.mainpage_header_status',
             'main/status', {},
             undefined,
-            '/data/status.json',
-            '3000',
+            '/api/status'
+            //'3000'
         ).render();
 
         let StatList = new Hata(
             '.mainpage_list',
             'main/item', {},
             undefined,
-            '/data/stat.json',
-            '3000',
+            '/api/stat'
+            //'3000'
         ).render();
     },
-    '/data/main.json'
+    '/api/main'
 );

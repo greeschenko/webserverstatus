@@ -16,7 +16,9 @@ type Server struct {
 
 type Stats []struct {
     Name string
-    Command string
+    Condition string
+    Status string
+    Grafs []string
 }
 
 
