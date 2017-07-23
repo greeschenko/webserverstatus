@@ -26,6 +26,11 @@ type Stat struct {
 
 var Conf configread.Config
 
+func getConfig() {
+    Conf = configread.Read()
+}
+
+
 func executeOne(command string) string {
     res := strings.Split(command," ")
 
@@ -46,7 +51,7 @@ func toJson(i interface{}) []byte {
 }
 
 func main() {
-    Conf = configread.Read()
+    getConfig()
 
     myMux := http.NewServeMux()
     myMux.HandleFunc("/api/main", srvMain)

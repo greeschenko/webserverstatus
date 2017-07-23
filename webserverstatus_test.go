@@ -4,20 +4,27 @@ import (
     "testing"
 )
 
-//test prop read config file
-//test '/data/status.json',
-//test '/data/stat.json',
-//test '/data/main.json'
-
-
 func TestPropReadConfigFile(t *testing.T) {
     getConfig()
-    if Domen != "polonex.com.ua" {
+    if Conf.Server.Domen != "polonex.com.ua" {
         t.Fatal("not prop server domen")
-    }
-    if len(Commands) == 0 {
-        t.Fatal("0 commands in config")
     }
     return
 }
 
+func TestExecuteOne(t *testing.T) {
+    r := executeOne("printf OK")
+    if r != "OK" {
+        t.Fatal("execute commands from strings dont work")
+    }
+    return
+}
+
+func TestToJson(t *testing.T) {
+    data := Status{"OK"}
+    r := toJson(data)
+    if len(r) == 0 {
+        t.Fatal("convert to json dont work")
+    }
+    return
+}
