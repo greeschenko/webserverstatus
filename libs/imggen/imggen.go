@@ -10,8 +10,10 @@ func Push(list []int, n int) []int {
     return r
 }
 
-func Gen(list []int, n int) []int {
-    data := Push(list, n)
+func Gen(list []int, n float64, max float64, name string) []int {
+    n = (n/max)*50
+    res := int(n)
+    data := Push(list, res)
 
     dc := gg.NewContext(200, 50)
     for i,v := range(data){
@@ -19,7 +21,7 @@ func Gen(list []int, n int) []int {
         dc.SetRGBA(150, 0, 60, 0.8)
         dc.Fill()
     }
-    dc.SavePNG("web/img/out.png")
+    dc.SavePNG(name)
 
     return data
 }

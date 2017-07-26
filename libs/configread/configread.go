@@ -14,11 +14,16 @@ type Server struct {
     Domen string
 }
 
+type Graph struct {
+    Command string
+    Max string
+}
+
 type Stats []struct {
     Name string
     Condition string
     Status string
-    Grafs []string
+    Graphs []Graph
 }
 
 

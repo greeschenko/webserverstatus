@@ -1,12 +1,16 @@
 package main
 
 import (
-    //"fmt"
+    "fmt"
     "webserverstatus/libs/configread"
     "os/exec"
     "strings"
     "encoding/json"
     "net/http"
+    "bytes"
+    "strconv"
+    "time"
+    "webserverstatus/libs/imggen"
 )
 
 type Main struct {
@@ -36,7 +40,7 @@ func executeOne(command string) string {
 
     out, err := exec.Command(res[0], res[1:]...).Output()
     if err != nil {
-        panic("error")
+        panic(err)
     }
 
     return string(out)
@@ -70,16 +74,46 @@ func srvStatus(w http.ResponseWriter, r *http.Request) {
     w.Write(toJson(data))
 }
 
+var ImgList = make(map[string][]int, len(Conf.Stats))
+
 func srvStat(w http.ResponseWriter, r *http.Request) {
     var statdata []Stat
-    for s := range Conf.Stats {
-        item := Conf.Stats[s]
+    for _,item := range Conf.Stats {
+        var buffer bytes.Buffer
+        buffer.WriteString("/img/")
+        buffer.WriteString(item.Name)
+        buffer.WriteString(".png")
+
+        gval, err := strconv.ParseFloat(executeOne(item.Graphs[0].Command), 64)
+        if err != nil {
+            panic(err)
+        }
+
+        gmax, err := strconv.ParseFloat(executeOne(item.Graphs[0].Max), 64)
+        if err != nil {
+            panic(err)
+        }
+
+        if _, ok := ImgList[item.Name]; !ok {
+            ImgList[item.Name] = make([]int, 20)
+        }
+
+        ImgList[item.Name] = imggen.Gen(
+            ImgList[item.Name],
+            gval,
+            gmax,
+            "web"+buffer.String(),
+        )
+
         statdata = append(statdata, Stat{
             item.Name,
-            "test",
+            buffer.String()+"?time="+time.Now().Format("20060102150405"),
             executeOne(item.Condition),
             executeOne(item.Status),
         })
     }
+
+    fmt.Printf("%v\n", ImgList)
+
     w.Write(toJson(statdata))
 }

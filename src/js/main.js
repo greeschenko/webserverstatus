@@ -6,7 +6,7 @@ let LoginPage = new Hata(
             MainPage.render();
         });
     }
-).render();
+);
 
 let MainPage = new Hata(
     '#res',
@@ -24,9 +24,9 @@ let MainPage = new Hata(
             '.mainpage_list',
             'main/item', {},
             undefined,
-            '/api/stat'
-            //'3000'
+            '/api/stat',
+            '3000'
         ).render();
     },
     '/api/main'
-);
+).render();
