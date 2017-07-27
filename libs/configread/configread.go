@@ -1,48 +1,47 @@
 package configread
 
 import (
-    "io/ioutil"
-    "encoding/json"
+	"encoding/json"
+	"io/ioutil"
 )
 
 type Config struct {
-    Server Server
-    Stats Stats
+	Server Server
+	Stats  Stats
 }
 
 type Server struct {
-    Domen string
+	Ip string
 }
 
 type Graph struct {
-    Command string
-    Max string
+	Command string
+	Max     string
 }
 
 type Stats []struct {
-    Name string
-    Condition string
-    Status string
-    Graphs []Graph
+	Name      string
+	Condition string
+	Status    string
+	Graphs    []Graph
 }
-
 
 // Reading files requires checking most calls for errors.
 // This helper will streamline our error checks below.
 func check(e error) {
-    if e != nil {
-        panic(e)
-    }
+	if e != nil {
+		panic(e)
+	}
 }
 
-func Read() Config{
-    var c Config
+func Read() Config {
+	var c Config
 
-    dat, err := ioutil.ReadFile("package.cfg")
-    check(err)
+	dat, err := ioutil.ReadFile("package.cfg")
+	check(err)
 
-    jerr := json.Unmarshal(dat, &c)
-    check(jerr)
+	jerr := json.Unmarshal(dat, &c)
+	check(jerr)
 
-    return c
+	return c
 }

@@ -76,7 +76,7 @@ button.noborder {
   display: flex;
   -ms-flex-pack: justify;
       justify-content: space-between;
-  padding: 1em; }
+  padding: 2em 0; }
   .mainpage_header_content {
     -ms-flex-positive: 1;
         flex-grow: 1;
@@ -86,7 +86,8 @@ button.noborder {
   width: 3em;
   height: 3em;
   border: 1px solid rgba(128, 128, 128, 0.4);
-  border-radius: 50%; }
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px grey; }
   .indicator.OK {
     background: limegreen; }
   .indicator.WARN {
@@ -95,6 +96,7 @@ button.noborder {
     background: tomato; }
 
 .statitem {
+  box-shadow: 2px 2px 5px grey;
   background: white;
   margin-bottom: 1em;
   height: 3em;
@@ -128,3 +130,8 @@ button.noborder {
       background: darkorange; }
     .statitem_status.FAIL {
       background: tomato; }
+
+.siteitem .siteitem_header {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em 0; }
