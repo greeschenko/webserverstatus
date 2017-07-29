@@ -8,6 +8,7 @@ import (
 type Config struct {
 	Server Server
 	Stats  Stats
+	Sites  Sites
 }
 
 type Server struct {
@@ -24,6 +25,11 @@ type Stats []struct {
 	Condition string
 	Status    string
 	Graphs    []Graph
+}
+
+type Sites []struct {
+	Domen string
+	Stats Stats
 }
 
 // Reading files requires checking most calls for errors.

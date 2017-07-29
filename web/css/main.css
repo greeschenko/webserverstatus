@@ -135,3 +135,11 @@ button.noborder {
   display: -ms-flexbox;
   display: flex;
   padding: 1em 0; }
+
+.rotator {
+  overflow: hidden;
+  display: -ms-flexbox;
+  display: flex; }
+  .rotator_item {
+    transition: margin-left 1s ease-in-out 0s;
+    min-width: 100%; }

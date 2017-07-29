@@ -1,0 +1,14 @@
+[
+    {
+        "Name":"apache",
+        "Graph":"/data/graph.jpg",
+        "Stats":"93 reqs(3.1/sec) 138.8K(4738.1B/sec) 1528.4B/req",
+        "Status":"OK"
+    },
+    {
+        "Name":"mysql",
+        "Graph":"/data/graph.jpg",
+        "Stats":"7.2M qps:16 Slow:83.0  Se/In/Up/De(%): 52/03/00/01",
+        "Status":"WARN"
+    }
+]

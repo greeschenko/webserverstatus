@@ -18,18 +18,6 @@
         "status":"OK"
     },
     {
-        "name":"apache",
-        "graph":"/data/graph.jpg",
-        "stats":"93 reqs(3.1/sec) 138.8K(4738.1B/sec) 1528.4B/req",
-        "status":"OK"
-    },
-    {
-        "name":"mysql",
-        "graph":"/data/graph.jpg",
-        "stats":"7.2M qps:16 Slow:83.0  Se/In/Up/De(%): 52/03/00/01",
-        "status":"WARN"
-    },
-    {
         "name":"eset",
         "graph":"/data/graph.jpg",
         "stats":"scan 24k",
