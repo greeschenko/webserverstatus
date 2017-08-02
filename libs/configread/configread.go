@@ -28,8 +28,9 @@ type Stats []struct {
 }
 
 type Sites []struct {
-	Domen string
-	Stats Stats
+	Domen      string
+	Checklinks []string
+	Stats      Stats
 }
 
 // Reading files requires checking most calls for errors.

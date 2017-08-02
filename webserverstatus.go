@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"os/exec"
 	"strconv"
@@ -141,12 +142,26 @@ func srvSites(w http.ResponseWriter, r *http.Request) {
 }
 
 func srvSitesStatus(w http.ResponseWriter, r *http.Request) {
-	//index := r.URL.Query().Get("index")
-	//id, err := strconv.Atoi(index)
-	//if err != nil {
-	//panic(err)
-	//}
-	data := Status{"OK"} //TODO add status calculation
+	index := r.URL.Query().Get("index")
+	id, err := strconv.Atoi(index)
+	status := "OK"
+	if err != nil {
+		panic(err)
+	}
+	for _, url := range Conf.Sites[id].Checklinks {
+		res, err := http.Get(url)
+		if err != nil {
+			status = "FAIL"
+			fmt.Println(url + "...FAIL")
+		} else {
+			res.Body.Close()
+			if res.StatusCode != 200 {
+				status = "FAIL"
+				fmt.Println(url + "..." + res.Status)
+			}
+		}
+	}
+	data := Status{status}
 	w.Write(toJson(data))
 }
 
