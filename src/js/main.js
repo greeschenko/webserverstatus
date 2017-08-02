@@ -28,7 +28,7 @@ let MainPage = new Hata(
                     ).render();
                     new Hata(
                         $(this).find('.mainpage_header_status'),
-                        'main/status', {},
+                        'main/site_status', {},
                         undefined,
                         '/api/sites-status?index=' + index,
                         3000
@@ -55,8 +55,14 @@ let MainPage = new Hata(
             '.mainpage_header_status',
             'main/status', {},
             undefined,
-            '/api/status'
-            //'3000'
+            '/api/status',
+            '3000',
+            function() {
+                console.log('testfail');
+                StatusInd.data = {
+                    "Status": "FAIL"
+                };
+            }
         ).render();
 
         let StatList = new Hata(

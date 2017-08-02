@@ -77,7 +77,13 @@ func srvMain(w http.ResponseWriter, r *http.Request) {
 }
 
 func srvStatus(w http.ResponseWriter, r *http.Request) {
-	data := Status{"OK"}
+	var data Status
+	tmp := executeOne("bash scripts/pingstatus.sh " + Conf.Server.Ip)
+	if tmp == "fail" {
+		data = Status{"FAIL"}
+	} else {
+		data = Status{"OK"}
+	}
 	w.Write(toJson(data))
 }
 
