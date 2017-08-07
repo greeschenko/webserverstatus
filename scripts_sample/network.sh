@@ -31,14 +31,14 @@ fi
 echo "${R1}" > /tmp/wstat_last_rx
 echo "${T1}" > /tmp/wstat_last_tx
 
-TBPS=`expr $T1 - $LT1`
-TBPS=`expr $TBPS / $INTERVAL`
-TKBPS=`expr $TBPS / 1024`
-RBPS=`expr $R1 - $LR1`
-RBPS=`expr $RBPS / $INTERVAL`
-RKBPS=`expr $RBPS / 1024`
-RALL=`expr $R1 / 1024`
-TALL=`expr $T1 / 1024`
+TBPS=`echo "$T1 - $LT1" | bc`
+TBPS=`echo "$TBPS / $INTERVAL" | bc`
+TKBPS=`echo "$TBPS / 1024" | bc`
+RBPS=`echo "$R1 - $LR1" | bc`
+RBPS=`echo "$RBPS / $INTERVAL" | bc`
+RKBPS=`echo "$RBPS / 1024" | bc`
+RALL=`echo "$R1 / 1024" | bc`
+TALL=`echo "$T1 / 1024" | bc`
 
 if [ $# -eq 2 ]; then
     RES="TX $INTF: $TALL kB ($TKBPS kB/s) errors/drops $ET1/$DT1 RX $INTF: $RALL kB ($RKBPS kB/s) errors/drops $ER1/$DR1"

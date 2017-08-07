@@ -15,8 +15,8 @@ fi
 
 echo "${COUNT}" > $TMPFILE
 
-RES=`expr $COUNT - $OLD`
-RES=`expr $RES / $INTERVAL`
+RES=`echo "$COUNT - $OLD" | bc`
+RES=`echo "$RES / $INTERVAL" | bc`
 
 if [ $# -eq 2 ]; then
     RES="Load: ${RES} req/second"
