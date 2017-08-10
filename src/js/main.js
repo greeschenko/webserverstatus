@@ -29,7 +29,11 @@ let MainPage = new Hata(
                                 let data = self.data[index].Graph;
                                 el.html('');
                                 for (var i in data) {
-                                    el.append('<div class="statitem_graph_item" style="height: ' + data[i] + 'px"></div>');
+                                    let h = data[i];
+                                    if (h > 42) {
+                                        h = 42;
+                                    }
+                                    el.append('<div class="statitem_graph_item" style="height: ' + h + 'px"></div>');
                                 }
                             });
                         },
@@ -84,7 +88,11 @@ let MainPage = new Hata(
                     let data = StatList.data[index].Graph;
                     el.html('');
                     for (var i in data) {
-                        el.append('<div class="statitem_graph_item" style="height: ' + data[i] + 'px"></div>');
+                        let h = data[i];
+                        if (h > 42) {
+                            h = 42;
+                        }
+                        el.append('<div class="statitem_graph_item" style="height: ' + h + 'px"></div>');
                     }
                 });
             },

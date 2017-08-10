@@ -7,7 +7,7 @@ func Push(list []int, n int) []int {
 }
 
 func Gen(list []int, n float64, max float64) []int {
-	n = (n / max) * 50
+	n = (n / max) * 42
 	res := int(n)
 	data := Push(list, res)
 
