@@ -110,9 +110,22 @@ button.noborder {
     line-height: 3em;
     font-weight: bold; }
   .statitem_graph {
-    width: 168px; }
-    .statitem_graph img {
-      height: 3em; }
+    width: 120px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+    -ms-flex-align: end;
+        align-items: flex-end;
+    border-bottom: 1px solid white; }
+    .statitem_graph_item {
+      display: inline-block;
+      height: 20px;
+      width: 1px;
+      background: red;
+      margin: 0;
+      padding: 0;
+      margin-left: 1px; }
   .statitem_stats {
     padding: 0 1em;
     line-height: 3em;

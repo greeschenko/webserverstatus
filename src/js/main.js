@@ -22,7 +22,17 @@ let MainPage = new Hata(
                     new Hata(
                         $(this).find('.siteitem_stats'),
                         'main/item', {},
-                        undefined,
+                        function() {
+                            let self = this;
+                            self.el.find('.statitem_graph').each(function(index) {
+                                let el = $(this);
+                                let data = self.data[index].Graph;
+                                el.html('');
+                                for (var i in data) {
+                                    el.append('<div class="statitem_graph_item" style="height: ' + data[i] + 'px"></div>');
+                                }
+                            });
+                        },
                         '/api/sites-stats?index=' + index,
                         3000
                     ).render();
@@ -68,7 +78,16 @@ let MainPage = new Hata(
         let StatList = new Hata(
             '.mainpage_list',
             'main/item', {},
-            undefined,
+            function() {
+                StatList.el.find('.statitem_graph').each(function(index) {
+                    let el = $(this);
+                    let data = StatList.data[index].Graph;
+                    el.html('');
+                    for (var i in data) {
+                        el.append('<div class="statitem_graph_item" style="height: ' + data[i] + 'px"></div>');
+                    }
+                });
+            },
             '/api/stat',
             '3000'
         ).render();

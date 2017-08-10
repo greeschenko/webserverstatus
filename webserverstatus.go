@@ -1,14 +1,12 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"os/exec"
 	"strconv"
 	"strings"
-	"time"
 	"webserverstatus/libs/configread"
 	"webserverstatus/libs/imggen"
 )
@@ -29,7 +27,7 @@ type Sites struct {
 
 type Stat struct {
 	Name   string
-	Graph  string
+	Graph  []int
 	Stats  string
 	Status string
 }
@@ -63,11 +61,6 @@ func genStatDataJson(s configread.Stats) []byte {
 	var statdata []Stat
 
 	for _, item := range s {
-		var buffer bytes.Buffer
-		buffer.WriteString("/img/")
-		buffer.WriteString(item.Name)
-		buffer.WriteString(".png")
-
 		gval, err := strconv.ParseFloat(executeOne(item.Graphs[0].Command), 64)
 		if err != nil {
 			panic(err)
@@ -79,19 +72,18 @@ func genStatDataJson(s configread.Stats) []byte {
 		}
 
 		if _, ok := ImgList[item.Name]; !ok {
-			ImgList[item.Name] = make([]int, 20)
+			ImgList[item.Name] = make([]int, 60)
 		}
 
 		ImgList[item.Name] = imggen.Gen(
 			ImgList[item.Name],
 			gval,
 			gmax,
-			"web"+buffer.String(),
 		)
 
 		statdata = append(statdata, Stat{
 			item.Name,
-			buffer.String() + "?time=" + time.Now().Format("20060102150405"),
+			ImgList[item.Name],
 			executeOne(item.Condition),
 			executeOne(item.Status),
 		})
