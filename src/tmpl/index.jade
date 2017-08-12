@@ -2,15 +2,21 @@ doctype html
 html(lang='en')
     head
         meta(charset='utf-8')
+        meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=0")
         title web server status
         link(href='css/libs.css?v=0.0.1', rel='stylesheet')
         link(href='css/main.min.css?v=0.0.1', rel='stylesheet')
     body
+        canvas#helpwrap(width="100%" height="100%")
         .container
+            .mainhelp
+                i.fa.fa-question
             #res
                 .preintro
                     i.fa.fa-refresh.fa-spin.fa-3x.fa-fw
                     span Loading...
-    footer
-    script(src='js/libs.js?v=0.0.1')
-    script(src='js/main.min.js?v=0.0.1')
+        footer
+            .copyright © webServerStat 2017
+            .vendor Oleksiy Hryshchenko (greeschenko@gmail.com)
+        script(src='js/libs.js?v=0.0.1')
+        script(src='js/main.min.js?v=0.0.1')

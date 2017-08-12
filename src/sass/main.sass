@@ -89,6 +89,45 @@ button.invert
     font-size: 1.5em
 //preintro end
 
+.mainhelp
+  z-index: 2000
+  position: fixed
+  top: 1em
+  right: 1em
+  background: #4ab1cb
+  width: 2em
+  height: 2em
+  text-align: center
+  line-height: 1.9em
+  color: white
+  border-radius: 50%
+  border: 1px solid rgba(grey, 0.2)
+  cursor: pointer
+  box-shadow: 1px 1px 3px grey
+  &:hover
+    background: rgba(#4ab1cb, 0.5);
+
+#helpwrap
+  display: none
+  z-index: 1000
+  position: fixed
+  top: 0
+  left: 0
+  background: rgba(lightblue, 0.5)
+
+footer
+  color: #276e86
+  position: fixed
+  width: 100%
+  bottom: 0
+  font-size: 0.8em
+  display: flex
+  justify-content: flex-end
+  padding: 0 1em
+  .copyright
+    flex-grow: 1
+  .vendor
+
 .mainpage
   &_header
     display: flex

@@ -71,6 +71,47 @@ button.noborder {
   .preintro span {
     font-size: 1.5em; }
 
+.mainhelp {
+  z-index: 2000;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  background: #4ab1cb;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 1.9em;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  cursor: pointer;
+  box-shadow: 1px 1px 3px grey; }
+  .mainhelp:hover {
+    background: rgba(74, 177, 203, 0.5); }
+
+#helpwrap {
+  display: none;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(173, 216, 230, 0.5); }
+
+footer {
+  color: #276e86;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-size: 0.8em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  padding: 0 1em; }
+  footer .copyright {
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
+
 .mainpage_header {
   display: -ms-flexbox;
   display: flex;
