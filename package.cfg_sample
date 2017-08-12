@@ -1,6 +1,6 @@
 {
     "server":{
-        "ip":"77.88.193.124"
+        "ip":"8.8.8.8"
     },
     "stats":[
         {
@@ -54,10 +54,10 @@
     ],
     "sites":[
         {
-            "domen": "polonex.com.ua",
+            "domen": "site.com.ua",
             "checklinks": [
-                "https://polonex.com.ua",
-                "https://polonex.com.ua/prozorrosale/auctions/public"
+                "https://site.com.ua",
+                "https://site.com.ua/prozorrosale/auctions/public"
             ],
             "stats":[
                 {
