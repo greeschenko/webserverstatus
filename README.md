@@ -16,7 +16,7 @@ edit package.cfg
 
 first add server config
 
-`
+```
 {
     "server":{
         "ip":"88.88.88.88"                                  //add your server IP
@@ -37,11 +37,11 @@ first add server config
         ...
     ],
     ...
-`
+```
 
 next add sites config if it need
 
-`
+```
     "sites":[                                               // You can add many sites that are hosted on your server
         ...
         {
@@ -68,13 +68,13 @@ next add sites config if it need
         }
         ...
     ]
-`
+```
 
 ## Usage
 
 configure nginx
 
-`
+```
 server {
     listen 80;
     listen [::]:80;
@@ -93,7 +93,7 @@ server {
         proxy_pass  http://localhost:1888;
     }
 }
-`
+```
 
 start backend
 
