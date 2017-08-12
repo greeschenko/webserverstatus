@@ -1,2 +1,7 @@
-# webserverstatus
-golang based web app for check web server state
+# webServerStatus
+
+golang based, highly configured web app for check server and sites condition
+
+[[https://raw.githubusercontent.com/greeschenko/webserverstatus/master/help.png|alt=octocat]]
+
+
